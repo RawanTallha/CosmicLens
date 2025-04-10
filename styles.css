@@ -1,0 +1,237 @@
+/* BACKGROUND + STARS */
+html,
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #120d0d;
+    overflow-x: hidden;
+}
+
+.home-card {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+    margin-top: 2vw;
+}
+
+.home-card h1 {
+    text-align: left;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: lighter;
+    font-size: 1.5vw;
+    color: rgba(255, 255, 255, 0.719);
+    margin-top: 2vw;
+    margin-left: 15vw;
+}
+
+.home-card em {
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.434);
+}
+
+.mars-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15vw;
+    letter-spacing: 0.5vw;
+    position: relative;
+    z-index: 1;
+    gap: 0;
+}
+
+.mars-text {
+    font-family: 'Montserrat', sans-serif;
+    z-index: 1;
+    /* background: -webkit-linear-gradient(#9f2222, #350d0d); */
+    background: -webkit-linear-gradient(#9f4e22, #351b0d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.Mars-photo {
+    width: 30vw;
+    z-index: 2;
+    object-fit: cover;
+    margin-left: -5vw;
+    margin-right: -5vw;
+    padding: 10px;
+    border-radius: 50%;
+    border: 1px solid #633821;
+    /* Optional soft border */
+}
+
+
+@keyframes animStar {
+    from {
+        transform: translateY(0px);
+    }
+
+    to {
+        transform: translateY(-2000px);
+    }
+}
+
+/* NAVBAR */
+nav {
+    font-size: medium;
+    font-weight: 500;
+    overflow: hidden;
+    /* background-color: #ffffffe1; */
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    font-family: 'Bai Jamjuree';
+}
+
+nav a {
+    text-decoration: none;
+    /* color: rgba(255, 255, 255, 0.536); */
+    color: rgba(255, 255, 255, 0.799);
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+nav a.split {
+    float: right;
+}
+
+nav a.split:hover {
+    /* color: rgba(255, 255, 255, 0.799); */
+    color: rgba(255, 255, 255, 0.536);
+}
+
+/* ABOUT MARS SECTION */
+.about-mars {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: 100%;
+    height: 100vh;
+}
+
+.about-mars-info {
+    padding-right: 3vw;
+}
+
+.about-mars-info h1 {
+    font-size: 3vw;
+    color: lightgrey;
+    font-family: 'Bai Jamjuree';
+    font-weight: bolder;
+    letter-spacing: 1.5vw;
+}
+
+.about-mars-info p {
+    font-size: 1.5vw;
+    color: rgb(184, 184, 184);
+    font-family: 'Bai Jamjuree';
+}
+
+.about-mars-info h2 {
+    font-size: 2vw;
+    color: lightgrey;
+    font-family: 'Bai Jamjuree';
+}
+
+.about-mars-info ul {
+    font-size: 1.5vw;
+    color: rgb(184, 184, 184);
+    font-family: 'Bai Jamjuree';
+}
+
+/* PATTERN */
+.pattern {
+    display: block;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    white-space: nowrap;
+}
+
+.pattern-text {
+    font-size: 4vw;
+    color: rgba(211, 211, 211, 0.911);
+    position: relative;
+    font-family: 'Bai Jamjuree', sans-serif;
+    letter-spacing: 10px;
+    font-weight: bolder;
+}
+
+.pattern-photo {
+    width: 3vw;
+    padding: 0px 15px 0px 15px;
+    /* margin: 0 1rem; */
+}
+
+.pattern-text em {
+    font-style: normal;
+    /* #9f4e22, #351b0d */
+    color: #9f4e22;
+}
+
+/* MARS ROVERS SECTION */
+.mars-rovers {
+    /* margin-top: 10%; */
+    /* width: 100%;
+    height: 100vh; */
+    /* margin: 2%; */
+}
+
+.mars-rovers h1 {
+    font-size: 3vw;
+    color: lightgrey;
+    font-family: 'Bai Jamjuree';
+    font-weight: bolder;
+    letter-spacing: 0.5vw;
+    text-decoration: underline;
+    text-decoration-color: #633821;
+    margin: 10% 0 2% 10%;
+    /* text-align: center; */
+}
+
+.rover-cards {
+    display: flex;
+    gap: 2%;
+    /* padding: 2%; */
+    justify-content: center;
+}
+.rover-card {
+    position: relative;
+    height: 30vw;
+    width: 20vw;
+    padding: 40px;
+    border-radius: 20px;
+    font-family: 'Bai Jamjuree';
+    color: white;
+    background-image: url('assets/Rover-Spirit.jpg');
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+
+.rover-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(160deg, rgba(26, 26, 26, 0), rgba(216, 58, 58, 0.526));
+    z-index: 0;
+    /* Ensures the gradient stays behind the content */
+}
+
+.content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    z-index: 1;
+}
+
+.content ul{
+    list-style-type: none; /* Remove bullets */
+    padding: 0; /* Remove padding */
+    margin: 0; /* Remove margins */}
