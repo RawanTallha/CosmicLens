@@ -7,15 +7,57 @@ body {
     overflow-x: hidden;
 }
 
+/* FOR DEBUGGING PURPOSES */
+* {
+    outline: 1px dashed rgba(255, 255, 255, 0.2);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+
+/* NAVBAR */
+nav {
+    font-size: medium;
+    font-weight: 500;
+    overflow: hidden;
+    position: sticky;
+    z-index: 1000;
+    top: 0;
+    font-family: 'Bai Jamjuree';
+}
+
+nav a {
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.799);
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    font-size: 17px;
+}
+
+nav a.split {
+    float: right;
+}
+
+nav a.split:hover {
+    /* color: rgba(255, 255, 255, 0.799); */
+    color: rgba(255, 255, 255, 0.536);
+}
+
+/* HOME SECTION */
+
 .home-card {
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
-    margin-top: 2vw;
+    /* overflow: hidden; */
+    margin-top: 3vw;
+    margin-bottom: 0;
+
 }
 
-.home-card h1 {
+.home-card p {
     text-align: left;
     font-family: 'Montserrat', sans-serif;
     font-weight: lighter;
@@ -44,7 +86,6 @@ body {
 .mars-text {
     font-family: 'Montserrat', sans-serif;
     z-index: 1;
-    /* background: -webkit-linear-gradient(#9f2222, #350d0d); */
     background: -webkit-linear-gradient(#9f4e22, #351b0d);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -59,7 +100,6 @@ body {
     padding: 10px;
     border-radius: 50%;
     border: 1px solid #633821;
-    /* Optional soft border */
 }
 
 
@@ -73,55 +113,26 @@ body {
     }
 }
 
-/* NAVBAR */
-nav {
-    font-size: medium;
-    font-weight: 500;
-    overflow: hidden;
-    /* background-color: #ffffffe1; */
-    position: sticky;
-    z-index: 1000;
-    top: 0;
-    font-family: 'Bai Jamjuree';
-}
-
-nav a {
-    text-decoration: none;
-    /* color: rgba(255, 255, 255, 0.536); */
-    color: rgba(255, 255, 255, 0.799);
-    float: left;
-    text-align: center;
-    padding: 14px 16px;
-    font-size: 17px;
-}
-
-nav a.split {
-    float: right;
-}
-
-nav a.split:hover {
-    /* color: rgba(255, 255, 255, 0.799); */
-    color: rgba(255, 255, 255, 0.536);
-}
-
 /* ABOUT MARS SECTION */
+h1 {
+    font-size: 3vw;
+    color: white;
+    font-family: 'Bai Jamjuree';
+    font-weight: bolder;
+    letter-spacing: 1.5vw;
+}
+
 .about-mars {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
     height: 100vh;
+    margin-top: 0;
+    padding-top: 0;
 }
 
 .about-mars-info {
     padding-right: 3vw;
-}
-
-.about-mars-info h1 {
-    font-size: 3vw;
-    color: lightgrey;
-    font-family: 'Bai Jamjuree';
-    font-weight: bolder;
-    letter-spacing: 1.5vw;
 }
 
 .about-mars-info p {
@@ -181,23 +192,20 @@ nav a.split:hover {
 }
 
 .mars-rovers h1 {
-    font-size: 3vw;
-    color: lightgrey;
-    font-family: 'Bai Jamjuree';
-    font-weight: bolder;
     letter-spacing: 0.5vw;
     text-decoration: underline;
     text-decoration-color: #633821;
-    margin: 10% 0 2% 10%;
+    margin: 10% 0 5% 10%;
     /* text-align: center; */
 }
 
 .rover-cards {
     display: flex;
     gap: 2%;
-    /* padding: 2%; */
+    margin: 5%;
     justify-content: center;
 }
+
 .rover-card {
     position: relative;
     height: 30vw;
@@ -221,7 +229,6 @@ nav a.split:hover {
     bottom: 0;
     background: linear-gradient(160deg, rgba(26, 26, 26, 0), rgba(216, 58, 58, 0.526));
     z-index: 0;
-    /* Ensures the gradient stays behind the content */
 }
 
 .content {
@@ -231,7 +238,71 @@ nav a.split:hover {
     z-index: 1;
 }
 
-.content ul{
-    list-style-type: none; /* Remove bullets */
-    padding: 0; /* Remove padding */
-    margin: 0; /* Remove margins */}
+.content ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* MARS PHOTOS */
+.mars-photos-header {
+    margin-top: 5%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.mars-photos-header::before,
+.mars-photos-header::after {
+    content: "";
+    flex: 1;
+    height: 3px;
+    background-color: rgba(211, 211, 211, 0.826);
+}
+
+.mars-photos-header h1 {
+    font-size: 3vw;
+    letter-spacing: 0.5vw;
+    margin: 0;
+    white-space: nowrap;
+}
+
+.circle-btn-group {
+    gap: 6%;
+    justify-content: center;
+    display: flex;
+    margin: 5%;
+}
+
+.circle-btn {
+    width: clamp(180px, 15vw, 220px);
+    height: clamp(180px, 15vw, 220px);
+    font-size: clamp(1.5rem, 2vw, 2rem);
+
+    border: 2px solid lightgray;
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+    font-weight: bold;
+    font-family: 'Bai Jamjuree';
+    cursor: pointer;
+    transition: all 0.3s ease;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+
+    padding: 10px;
+    white-space: normal;
+    word-break: break-word;
+    box-sizing: border-box;
+}
+
+
+.circle-btn:hover {
+    background-color: rgba(157, 157, 157, 0.304);
+    border: 4px solid white;
+
+}
