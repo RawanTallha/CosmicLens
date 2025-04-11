@@ -9,10 +9,7 @@ body {
 
 /* FOR DEBUGGING PURPOSES */
 * {
-    outline: 1px dashed rgba(255, 255, 255, 0.2);
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    /* outline: 1px dashed rgba(255, 255, 255, 0.2); */
   }
   
 
@@ -48,13 +45,12 @@ nav a.split:hover {
 /* HOME SECTION */
 
 .home-card {
-    position: relative;
-    width: 100%;
-    height: 100vh;
-    /* overflow: hidden; */
-    margin-top: 3vw;
-    margin-bottom: 0;
-
+   
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5%; 
 }
 
 .home-card p {
@@ -126,9 +122,9 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    height: 100vh;
-    margin-top: 0;
-    padding-top: 0;
+    /* height: ; */
+    margin-bottom: 0;
+    padding-bottom: 0;
 }
 
 .about-mars-info {
@@ -154,6 +150,10 @@ h1 {
 }
 
 /* PATTERN */
+.pattern-divider {
+    margin: 10% 0 10% 0;
+}
+
 .pattern {
     display: block;
     align-items: center;
@@ -164,7 +164,7 @@ h1 {
 
 .pattern-text {
     font-size: 4vw;
-    color: rgba(211, 211, 211, 0.911);
+    color: rgba(211, 211, 211, 0.734);
     position: relative;
     font-family: 'Bai Jamjuree', sans-serif;
     letter-spacing: 10px;
@@ -180,28 +180,21 @@ h1 {
 .pattern-text em {
     font-style: normal;
     /* #9f4e22, #351b0d */
-    color: #9f4e22;
+    color: #9f4e22d8;
 }
 
 /* MARS ROVERS SECTION */
-.mars-rovers {
-    /* margin-top: 10%; */
-    /* width: 100%;
-    height: 100vh; */
-    /* margin: 2%; */
-}
-
 .mars-rovers h1 {
     letter-spacing: 0.5vw;
-    text-decoration: underline;
-    text-decoration-color: #633821;
-    margin: 10% 0 5% 10%;
+    /* text-decoration: underline; */
+    /* text-decoration-color: #633821; */
+    margin-left: 5%;
     /* text-align: center; */
 }
 
 .rover-cards {
     display: flex;
-    gap: 2%;
+    gap: 6%;
     margin: 5%;
     justify-content: center;
 }
@@ -258,7 +251,12 @@ h1 {
     content: "";
     flex: 1;
     height: 3px;
-    background-color: rgba(211, 211, 211, 0.826);
+    /* background-color: rgba(211, 211, 211, 0.826); */
+    content: "";
+    flex: 1;
+    height: 3px;
+    background-image: linear-gradient(to right, #9f4e22, #351b0d);
+    -webkit-background-image: -webkit-linear-gradient(left, #9f4e22, #351b0d);
 }
 
 .mars-photos-header h1 {
@@ -304,5 +302,4 @@ h1 {
 .circle-btn:hover {
     background-color: rgba(157, 157, 157, 0.304);
     border: 4px solid white;
-
 }
