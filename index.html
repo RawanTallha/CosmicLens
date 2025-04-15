@@ -10,7 +10,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
 
     <style id="dynamic-stars"></style>
-    <script src="script.js"></script>
 </head>
 
 <body>
@@ -137,28 +136,54 @@
         </div>
     </section>
 
+    <!-- <section class="mars-photos">
+        <div class="mars-photos-header">
+            <h1>Discover our rover's photos</h1>
+        </div>
+        <div class="circle-btn-group">
+            <button class="circle-btn" onclick="fetchPhotos('spirit')">Spirit</button>
+            <button class="circle-btn" onclick="fetchPhotos('opportunity')">Opportunity</button>
+            <button class="circle-btn" onclick="fetchPhotos('curiosity')">Curiosity</button>
+        </div>
+        <div id="spirit-photos" class="photo-container"></div>
+        <div id="opportunity-photos" class="photo-container"></div>
+        <div id="curiosity-photos" class="photo-container"></div>
+    </section>
+
+    <div id="spirit-photos" class="photo-container">
+        <div class="gallery-buttons">
+            <button onclick="shuffleRoverPhotos('spirit')">Shuffle</button>
+            <button onclick="pickDateRover('spirit')">Pick a Date</button>
+            <button onclick="randomDateRover('spirit')">Surprise Me!</button>
+        </div>
+    </div> -->
+
     <section class="mars-photos">
         <div class="mars-photos-header">
             <h1>Discover our rover's photos</h1>
         </div>
         <div class="circle-btn-group">
-            <button class="circle-btn">Spirit</button>
-            <button class="circle-btn">Opportunity</button>
-            <button class="circle-btn">Curiosity</button>
+            <button class="circle-btn" onclick="fetchPhotos('spirit')">Spirit</button>
+            <button class="circle-btn" onclick="fetchPhotos('opportunity')">Opportunity</button>
+            <button class="circle-btn" onclick="fetchPhotos('curiosity')">Curiosity</button>
         </div>
+        <div id="spirit-photos" class="photo-container"></div>
+        <div id="opportunity-photos" class="photo-container"></div>
+        <div id="curiosity-photos" class="photo-container"></div>
     </section>
 
     <footer>
         <div class="footer-container">
-          <p>@Cosmic Lens</p>
-          <div class="footer-links">
-            <a href="https://x.com/RawanTallha">X</a>
-            <a href="https://github.com/RawanTallha">GitHub</a>
-            <a href="#">Privacy Policy</a>
-          </div>
+            <p>@Cosmic Lens</p>
+            <div class="footer-links">
+                <a href="https://x.com/RawanTallha">X</a>
+                <a href="https://github.com/RawanTallha">GitHub</a>
+                <a href="#">Privacy Policy</a>
+            </div>
         </div>
-      </footer>
-      
+    </footer>
+    <script src="script.js"></script>
+
 </body>
 
 </html>

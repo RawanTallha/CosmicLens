@@ -347,3 +347,58 @@ footer {
         justify-content: flex-start;
     }
 }
+
+
+/* BUTTONS */
+.gallery {
+    margin-top: 10px;
+    text-align: center;
+    color: lightgray;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-card {
+    width: 200px;
+}
+
+.photo-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.gallery-buttons {
+    margin-top: 15px;
+}
+
+.gallery-buttons button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #df4931;
+    color: white;
+    cursor: pointer;
+}
+
+.gallery-buttons button:hover {
+    background-color: #b83725;
+}
+
+#date-picker-wrapper {
+    padding: 10px;
+    background: #222;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  
