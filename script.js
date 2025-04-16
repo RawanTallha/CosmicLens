@@ -1,5 +1,7 @@
 const API_KEY = '6PUAjVYbsEpxZga9mqZF9lV6slqma3LA5t6Be1FP';
 
+
+// Random background stars
 function generateStarShadows(count) {
   let shadows = [];
   for (let i = 0; i < count; i++) {
@@ -73,6 +75,82 @@ styleEl.innerHTML = `
   }
 `;
 
+
+// Fetching each rover's info into cards
+
+// Function to fetch
+function fetchRoverData(rover) {
+  const manifestUrl = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${API_KEY}`;
+
+  fetch(manifestUrl)
+    .then((res) => res.json())
+    .then((manifestData) => {
+      const roverData = manifestData.photo_manifest;
+      updateRoverCard(rover, roverData);
+    })
+    .catch((err) => {
+      console.error(`Error fetching data for ${rover}:`, err);
+    });
+}
+
+// Updates rover cards
+function updateRoverCard(rover, roverData) {
+  const roverCard = document.querySelector(`.rover-card[data-rover="${rover}"]`);
+  if (roverCard) {
+    const content = roverCard.querySelector(".content");
+    content.innerHTML = `
+      <h3>${roverData.name}</h3>
+      <ul>
+        <li>Status: ${roverData.status}</li>
+        <li>Launch date: ${roverData.launch_date}</li>
+        <li>Landing date: ${roverData.landing_date}</li>
+        <li>Total photos: ${roverData.total_photos}</li>
+      </ul>
+    `;
+  }
+}
+
+// calls fetchRoverData for each rover
+document.addEventListener("DOMContentLoaded", function () {
+  fetchRoverData("spirit");
+  fetchRoverData("opportunity");
+  fetchRoverData("curiosity");
+  fetchRoverData("perseverance");
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 const gallerySection = document.querySelector(".mars-photos");
 
 // Global vars
@@ -89,7 +167,6 @@ function fetchPhotos(rover) {
     .then((manifestData) => {
       const sols = manifestData.photo_manifest.photos.map(p => p.sol);
       const randomSol = sols[Math.floor(Math.random() * sols.length)];
-//mewowowowoow
       console.log(`[${rover}] Trying sol: ${randomSol}`);
 
       const apiUrl = `https://api.nasa.gov/mars-photos/api/v1/rovers/${rover}/photos?sol=${randomSol}&api_key=${API_KEY}`;
@@ -97,7 +174,6 @@ function fetchPhotos(rover) {
       fetch(apiUrl)
         .then((res) => res.json())
         .then((data) => {
-//mwurrrrrrrrrrrrrrrrrrrrrrrrrrrr
           console.log(`[${rover}] Found ${data.photos.length} photos on sol ${randomSol}`);
 
           currentPhotos = data.photos;
@@ -127,34 +203,42 @@ function renderGallery(photos) {
   gallery.className = "gallery";
 
   gallery.innerHTML = `
-    <div class="photo-grid">
-      ${photos
-      .map(
-        (photo) => `
-        <div class="photo-card">
-          <img src="${photo.img_src.replace('http://', 'https://')}" alt="Mars photo" />
-          <p>${photo.earth_date}</p>
-        </div>
-      `
-      )
-      .join("")}
-    </div>
+
+  </div>
     <div class="gallery-buttons">
       <button onclick="shufflePhotos()">Shuffle</button>
       <button onclick="pickDate()">Pick a Date</button>
       <button onclick="randomDate()">Surprise Me!</button>
     </div>
+    <div class="photo-grid">
+      ${photos
+        .map(
+          (photo) => `
+        <div class="photo-card">
+          <img src="${photo.img_src.replace('http://', 'https://')}" alt="Mars photo" />
+          <div class="photo-info">
+          <p>Rover: ${photo.rover.name}</p>
+            <p>Earth Date: ${photo.earth_date}</p>
+            <p>Sol: ${photo.sol}</p>
+            <p>Camera: ${photo.camera.full_name}</p>
+            <p>Camera ID: ${photo.camera.id}</p>
+          </div>
+        </div>
+      `
+        )
+        .join("")}
+    
   `;
 
   const oldGallery = document.querySelector(".gallery");
   if (oldGallery) oldGallery.remove();
 
-  // Also remove old date picker if it exists
   const oldPicker = document.getElementById("date-picker-wrapper");
   if (oldPicker) oldPicker.remove();
 
   gallerySection.appendChild(gallery);
 }
+
 
 function shufflePhotos() {
   if (currentPhotos.length === 0) {
@@ -166,46 +250,28 @@ function shufflePhotos() {
   renderGallery(shuffled);
 }
 
+
 function pickDate() {
-  const existing = document.getElementById("date-picker-wrapper");
-  if (existing) existing.remove();
+  const userDate = prompt("Enter a date (YYYY-MM-DD):");
+  if (!userDate) return;
 
-  const wrapper = document.createElement("div");
-  wrapper.id = "date-picker-wrapper";
-  wrapper.style.marginTop = "10px";
+  const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${currentRover}/photos?earth_date=${userDate}&api_key=${API_KEY}`;
 
-  wrapper.innerHTML = `
-    <label for="date-input" style="color:white;">Choose a date: </label>
-    <input type="date" id="date-input" max="${new Date().toISOString().split('T')[0]}"/>
-    <button id="fetch-by-date">Go</button>
-  `;
-
-  gallerySection.appendChild(wrapper);
-
-  document.getElementById("fetch-by-date").onclick = () => {
-    const userDate = document.getElementById("date-input").value;
-    if (!userDate) return;
-
-    const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${currentRover}/photos?earth_date=${userDate}&api_key=${API_KEY}`;
-
-    fetch(url)
-      .then((res) => res.json())
-      .then((data) => {
-        if (data.photos.length === 0) {
-          displayMessage("No photos found on that date.");
-          return;
-        }
-        currentPhotos = data.photos;
-        const randomPhotos = getRandomItems(currentPhotos, 6);
-        renderGallery(randomPhotos);
-      })
-      .catch((err) => {
-        console.error("Error fetching by date:", err);
-      });
-
-    wrapper.remove(); // Clean up picker after submission
-  };
+  fetch(url)
+    .then((res) => res.json())
+    .then((data) => {
+      if (data.photos.length === 0) {
+        displayMessage("No photos found on that date.");
+        return;
+      }
+      const randomPhotos = getRandomItems(data.photos, 4);
+      renderGallery(randomPhotos);
+    })
+    .catch((err) => {
+      console.error("Error fetching by date:", err);
+    });
 }
+
 
 function randomDate() {
   if (!currentRover) {

@@ -98,78 +98,68 @@
     <section class="mars-rovers">
         <h1>Marsian Rovers</h1>
         <div class="rover-cards">
-            <div class="rover-card" style="background-image: url('assets/Rover-Spirit.jpg');">
+            <div class="rover-card" style="background-image: url('assets/Rover-Spirit.jpg');" data-rover="spirit">
                 <div class="content">
-                    <h3>Spirit</h3>
-                    <ul>
-                        <li>Status: </li>
-                        <li>Landing date: </li>
-                        <li>Launch date: </li>
-                        <li>Total photos: </li>
-                    </ul>
+                  <!-- <h3>Spirit</h3>
+                  <ul>
+                    <li>Status: </li>
+                    <li>Landing date: </li>
+                    <li>Launch date: </li>
+                    <li>Total photos: </li>
+                  </ul> -->
                 </div>
-            </div>
-
-            <div class="rover-card" style="background-image: url('assets/Rover-Opportunity.jpg');">
+              </div>
+              
+              <div class="rover-card" style="background-image: url('assets/Rover-Opportunity.jpg');" data-rover="opportunity">
                 <div class="content">
-                    <h3>Opportunity</h3>
-                    <ul>
-                        <li>Status: </li>
-                        <li>Landing date: </li>
-                        <li>Launch date: </li>
-                        <li>Total photos: </li>
-                    </ul>
+                  <!-- <h3>Opportunity</h3>
+                  <ul>
+                    <li>Status: </li>
+                    <li>Landing date: </li>
+                    <li>Launch date: </li>
+                    <li>Total photos: </li>
+                  </ul> -->
                 </div>
-            </div>
-
-            <div class="rover-card" style="background-image: url('assets/Rover-Curiosity.jpg');">
+              </div>
+              
+              <div class="rover-card" style="background-image: url('assets/Rover-Curiosity.jpg');" data-rover="curiosity">
                 <div class="content">
-                    <h3>Curiosity</h3>
-                    <ul>
-                        <li>Status: </li>
-                        <li>Landing date: </li>
-                        <li>Launch date: </li>
-                        <li>Total photos: </li>
-                    </ul>
+                  <!-- <h3>Curiosity</h3> -->
+                  <!-- <ul>
+                    <li>Status: </li>
+                    <li>Landing date: </li>
+                    <li>Launch date: </li>
+                    <li>Total photos: </li>
+                  </ul> -->
                 </div>
-            </div>
+              </div>
+              
+              <div class="rover-card" style="background-image: url('assets/Rover-Perseverance.gif');" data-rover="perseverance">
+                <div class="content">
+                  <!-- <h3>Perseverance</h3>
+                  <ul>
+                    <li>Status: </li>
+                    <li>Landing date: </li>
+                    <li>Launch date: </li>
+                    <li>Total photos: </li>
+                  </ul> -->
+                </div>
+              </div>
         </div>
     </section>
-
-    <!-- <section class="mars-photos">
-        <div class="mars-photos-header">
-            <h1>Discover our rover's photos</h1>
-        </div>
-        <div class="circle-btn-group">
-            <button class="circle-btn" onclick="fetchPhotos('spirit')">Spirit</button>
-            <button class="circle-btn" onclick="fetchPhotos('opportunity')">Opportunity</button>
-            <button class="circle-btn" onclick="fetchPhotos('curiosity')">Curiosity</button>
-        </div>
-        <div id="spirit-photos" class="photo-container"></div>
-        <div id="opportunity-photos" class="photo-container"></div>
-        <div id="curiosity-photos" class="photo-container"></div>
-    </section>
-
-    <div id="spirit-photos" class="photo-container">
-        <div class="gallery-buttons">
-            <button onclick="shuffleRoverPhotos('spirit')">Shuffle</button>
-            <button onclick="pickDateRover('spirit')">Pick a Date</button>
-            <button onclick="randomDateRover('spirit')">Surprise Me!</button>
-        </div>
-    </div> -->
 
     <section class="mars-photos">
         <div class="mars-photos-header">
             <h1>Discover our rover's photos</h1>
         </div>
         <div class="circle-btn-group">
-            <button class="circle-btn" onclick="fetchPhotos('spirit')">Spirit</button>
-            <button class="circle-btn" onclick="fetchPhotos('opportunity')">Opportunity</button>
             <button class="circle-btn" onclick="fetchPhotos('curiosity')">Curiosity</button>
+            <button class="circle-btn" onclick="fetchPhotos('perseverance')">Perseverance</button>
         </div>
-        <div id="spirit-photos" class="photo-container"></div>
-        <div id="opportunity-photos" class="photo-container"></div>
         <div id="curiosity-photos" class="photo-container"></div>
+        <div id="perseverance-photos" class="photo-container"></div>
+        <!-- <input type="date" id="hiddenDateInput" style="display: none" /> -->
+
     </section>
 
     <footer>

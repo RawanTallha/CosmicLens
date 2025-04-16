@@ -185,17 +185,17 @@ h1 {
 
 .rover-cards {
     display: flex;
-    gap: 6%;
-    margin: 5%;
+    gap: 2%;
+    margin: 4%;
     justify-content: center;
 }
 
 .rover-card {
     position: relative;
-    height: 30vw;
+    height: 25vw;
     width: 20vw;
     padding: 40px;
-    border-radius: 20px;
+    border-radius: 15px;
     font-family: 'Bai Jamjuree';
     color: white;
     background-image: url('assets/Rover-Spirit.jpg');
@@ -353,8 +353,13 @@ footer {
 .gallery {
     margin-top: 10px;
     text-align: center;
-    color: lightgray;
     font-family: 'Bai Jamjuree', sans-serif;
+    
+}
+
+.photo-info {
+    text-align: left;
+    color: rgb(165, 171, 189);
 }
 
 .photo-grid {
@@ -374,18 +379,18 @@ footer {
 }
 
 .gallery-buttons {
-    margin-top: 15px;
+    margin: 15px;
 }
 
 .gallery-buttons button {
     margin: 5px;
     padding: 8px 15px;
-    font-size: 14px;
+    font-size: 16px;
     border: none;
     border-radius: 8px;
-    background-color: #df4931;
+    font-family: 'Bai Jamjuree', sans-serif;
+    background-color: #633821;
     color: white;
-    cursor: pointer;
 }
 
 .gallery-buttons button:hover {
@@ -400,5 +405,4 @@ footer {
     display: flex;
     gap: 10px;
     align-items: center;
-  }
-  
+}
