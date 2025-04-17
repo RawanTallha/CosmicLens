@@ -153,7 +153,7 @@ function fetchPhotos(rover) {
     })
     .catch((error) => {
       console.error("Error getting manifest:", error);
-      displayMessage("Couldn't load photos, try again!");
+      displayMessage("Couldn't load photos, try again!", "There appears to be a problem with NASA's Server");
     });
 }
 
@@ -240,7 +240,7 @@ function randomDate() {
     .then((res) => res.json())
     .then((data) => {
       if (data.photos.length === 0) {
-        displayMessage("No photos on this surprise sol! Try again.");
+        displayMessage("No photos on this surprise sol!", "Try again");
         return;
       }
       currentPhotos = data.photos;
