@@ -15,11 +15,11 @@
 <body>
     <!-- Navbar -->
     <nav class="custom-navbar">
-        <a href="#Home"><img src="assets/logo2.png" height="15" alt="heart-logo"></a>
+        <a href="#Home"><img src="assets/logo3.png" height="15" alt="heart-logo"></a>
 
         <a href="#Contact" class="split">Contact</a>
-        <a href="#About Mars" class="split">Gallery</a>
-        <a href="#About Mars" class="split">About Mars</a>
+        <a href="#Gallery" class="split">Gallery</a>
+        <a href="#About-mars" class="split">About Mars</a>
     </nav>
 
     <div id="small-stars"></div>
@@ -37,7 +37,16 @@
         <p>Get to know more about<br><em>The Red Planet</em></p>
     </section>
 
-    <section class="about-mars">
+    <!-- <section class="filler-section">
+        <img src="assets/logo3.png">
+        <p>Cosmic Lens is a creative web project built for the CCSW321 – Web Development course (Assignment 2), designed
+            to bring the wonders of Mars a little closer to home. By connecting with NASA's Mars Rover Photos API, users
+            can explore real images captured by rovers, dive into random cosmic moments, or choose specific dates to see
+            what Mars looked like then. It’s a fun way to interact with real space data while learning how to fetch and
+            display information from an external API.</p>
+    </section> -->
+
+    <section id="About-mars" class="about-mars">
         <img src="assets/Mars-photo.png" class="Mars-photo" alt="Mars" style="width: 40vw;" />
         <div class="about-mars-info">
             <h1>ABOUT MARS</h1>
@@ -95,56 +104,26 @@
         </div>
     </div>
 
-    <section class="mars-rovers">
+    <section id="Gallery" class="mars-rovers">
         <h1>Marsian Rovers</h1>
         <div class="rover-cards">
             <div class="rover-card" style="background-image: url('assets/Rover-Spirit.jpg');" data-rover="spirit">
-                <div class="content">
-                  <!-- <h3>Spirit</h3>
-                  <ul>
-                    <li>Status: </li>
-                    <li>Landing date: </li>
-                    <li>Launch date: </li>
-                    <li>Total photos: </li>
-                  </ul> -->
-                </div>
-              </div>
-              
-              <div class="rover-card" style="background-image: url('assets/Rover-Opportunity.jpg');" data-rover="opportunity">
-                <div class="content">
-                  <!-- <h3>Opportunity</h3>
-                  <ul>
-                    <li>Status: </li>
-                    <li>Landing date: </li>
-                    <li>Launch date: </li>
-                    <li>Total photos: </li>
-                  </ul> -->
-                </div>
-              </div>
-              
-              <div class="rover-card" style="background-image: url('assets/Rover-Curiosity.jpg');" data-rover="curiosity">
-                <div class="content">
-                  <!-- <h3>Curiosity</h3> -->
-                  <!-- <ul>
-                    <li>Status: </li>
-                    <li>Landing date: </li>
-                    <li>Launch date: </li>
-                    <li>Total photos: </li>
-                  </ul> -->
-                </div>
-              </div>
-              
-              <div class="rover-card" style="background-image: url('assets/Rover-Perseverance.gif');" data-rover="perseverance">
-                <div class="content">
-                  <!-- <h3>Perseverance</h3>
-                  <ul>
-                    <li>Status: </li>
-                    <li>Landing date: </li>
-                    <li>Launch date: </li>
-                    <li>Total photos: </li>
-                  </ul> -->
-                </div>
-              </div>
+                <div class="content"></div>
+            </div>
+
+            <div class="rover-card" style="background-image: url('assets/Rover-Opportunity.jpg');"
+                data-rover="opportunity">
+                <div class="content"></div>
+            </div>
+
+            <div class="rover-card" style="background-image: url('assets/Rover-Curiosity.jpg');" data-rover="curiosity">
+                <div class="content"></div>
+            </div>
+
+            <div class="rover-card" style="background-image: url('assets/Rover-Perseverance.gif');"
+                data-rover="perseverance">
+                <div class="content"></div>
+            </div>
         </div>
     </section>
 
@@ -158,11 +137,9 @@
         </div>
         <div id="curiosity-photos" class="photo-container"></div>
         <div id="perseverance-photos" class="photo-container"></div>
-        <!-- <input type="date" id="hiddenDateInput" style="display: none" /> -->
-
     </section>
 
-    <footer>
+    <footer id="Contact">
         <div class="footer-container">
             <p>@Cosmic Lens</p>
             <div class="footer-links">

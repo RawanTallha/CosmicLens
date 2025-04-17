@@ -7,12 +7,6 @@ body {
     overflow-x: hidden;
 }
 
-/* FOR DEBUGGING PURPOSES */
-* {
-    /* outline: 1px dashed rgba(255, 255, 255, 0.2); */
-}
-
-
 /* NAVBAR */
 nav {
     font-size: medium;
@@ -43,8 +37,13 @@ nav a.split:hover {
 
 /* HOME SECTION */
 .home-card {
-    margin: 5% 0 15% 0;
-    width: 100%;
+    /* margin: 5% 0 15% 0;
+    width: 100%; */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 5%;
 }
 
 .home-card p {
@@ -103,6 +102,23 @@ nav a.split:hover {
     }
 }
 
+/* .filler-section {
+    text-align: center;
+    color: rgb(176, 176, 176);
+    font-family: 'Bai Jamjuree';
+    font-size: 1.5vw;
+    margin: 2%;
+    padding: 9%;
+    border-radius: 50%;
+    border: 1px solid #9191916d;
+    width: fit-content;
+    
+}
+
+.filler-section img{
+    width: fit-content;
+} */
+
 /* ABOUT MARS SECTION */
 h1 {
     font-size: 3vw;
@@ -116,9 +132,9 @@ h1 {
     display: grid;
     grid-template-columns: 1fr 1fr;
     width: 100%;
-    /* height: ; */
     margin-bottom: 0;
     padding-bottom: 0;
+    margin-bottom: 15%;
 }
 
 .about-mars-info {
@@ -145,7 +161,7 @@ h1 {
 
 /* PATTERN */
 .pattern-divider {
-    margin: 10% 0 10% 0;
+    margin: 10% 0 15% 0;
 }
 
 .pattern {
@@ -168,7 +184,6 @@ h1 {
 .pattern-photo {
     width: 3vw;
     padding: 0px 15px 0px 15px;
-    /* margin: 0 1rem; */
 }
 
 .pattern-text em {
@@ -178,6 +193,10 @@ h1 {
 }
 
 /* MARS ROVERS SECTION */
+.mars-rovers {
+    margin-bottom: 15%;
+}
+
 .mars-rovers h1 {
     letter-spacing: 0.5vw;
     margin-left: 5%;
@@ -229,8 +248,12 @@ h1 {
 }
 
 /* MARS PHOTOS */
+.mars-photos {
+    margin-bottom: 25%;
+}
+
 .mars-photos-header {
-    margin-top: 5%;
+    margin: 5% 0 8% 0;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -288,11 +311,67 @@ h1 {
     box-sizing: border-box;
 }
 
-
 .circle-btn:hover {
     background-color: rgba(157, 157, 157, 0.304);
     border: 4px solid white;
     font-weight: bold;
+}
+
+/* DISCOVER OUR ROVERS SECTION */
+.gallery {
+    margin-top: 10px;
+    text-align: center;
+    font-family: 'Bai Jamjuree', sans-serif;
+}
+
+.photo-info {
+    text-align: left;
+    color: rgb(165, 171, 189);
+}
+
+.photo-grid {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.photo-card {
+    width: 200px;
+}
+
+.photo-card img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+.gallery-buttons {
+    margin: 15px;
+}
+
+.gallery-buttons button {
+    margin: 5px;
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    border-radius: 8px;
+    font-family: 'Bai Jamjuree', sans-serif;
+    background-color: #633821;
+    color: white;
+}
+
+.gallery-buttons button:hover {
+    background-color: #b83725;
+}
+
+#date-picker-wrapper {
+    padding: 10px;
+    background: #222;
+    color: white;
+    border-radius: 8px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
 }
 
 /* FOOTER */
@@ -346,63 +425,4 @@ footer {
     .footer-links {
         justify-content: flex-start;
     }
-}
-
-
-/* BUTTONS */
-.gallery {
-    margin-top: 10px;
-    text-align: center;
-    font-family: 'Bai Jamjuree', sans-serif;
-    
-}
-
-.photo-info {
-    text-align: left;
-    color: rgb(165, 171, 189);
-}
-
-.photo-grid {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-.photo-card {
-    width: 200px;
-}
-
-.photo-card img {
-    width: 100%;
-    border-radius: 5px;
-}
-
-.gallery-buttons {
-    margin: 15px;
-}
-
-.gallery-buttons button {
-    margin: 5px;
-    padding: 8px 15px;
-    font-size: 16px;
-    border: none;
-    border-radius: 8px;
-    font-family: 'Bai Jamjuree', sans-serif;
-    background-color: #633821;
-    color: white;
-}
-
-.gallery-buttons button:hover {
-    background-color: #b83725;
-}
-
-#date-picker-wrapper {
-    padding: 10px;
-    background: #222;
-    color: white;
-    border-radius: 8px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
 }

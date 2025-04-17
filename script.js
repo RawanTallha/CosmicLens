@@ -118,39 +118,7 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchRoverData("perseverance");
 });
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// Gallery section
 const gallerySection = document.querySelector(".mars-photos");
 
 // Global vars
@@ -183,7 +151,7 @@ function fetchPhotos(rover) {
             return;
           }
 
-          const randomPhotos = getRandomItems(currentPhotos, 6);
+          const randomPhotos = getRandomItems(currentPhotos, 8);
           renderGallery(randomPhotos);
         });
     })
@@ -246,7 +214,7 @@ function shufflePhotos() {
     return;
   }
 
-  const shuffled = getRandomItems([...currentPhotos], 6);
+  const shuffled = getRandomItems([...currentPhotos], 8);
   renderGallery(shuffled);
 }
 
@@ -264,7 +232,7 @@ function pickDate() {
         displayMessage("No photos found on that date.");
         return;
       }
-      const randomPhotos = getRandomItems(data.photos, 4);
+      const randomPhotos = getRandomItems(data.photos, 8);
       renderGallery(randomPhotos);
     })
     .catch((err) => {
@@ -291,7 +259,7 @@ function randomDate() {
         return;
       }
       currentPhotos = data.photos;
-      const randomPhotos = getRandomItems(currentPhotos, 6);
+      const randomPhotos = getRandomItems(currentPhotos, 8);
       renderGallery(randomPhotos);
     })
     .catch((err) => {
@@ -300,12 +268,29 @@ function randomDate() {
 }
 
 function displayMessage(message) {
-  const msg = document.createElement("p");
-  msg.textContent = message;
-  msg.style.color = "white";
-  msg.style.marginTop = "10px";
+  // Remove old gallery if exists
+  const oldGallery = document.querySelector(".gallery");
+  if (oldGallery) oldGallery.remove();
 
-  gallerySection.appendChild(msg);
+  // Remove old date picker if exists
+  const oldPicker = document.getElementById("date-picker-wrapper");
+  if (oldPicker) oldPicker.remove();
 
-  setTimeout(() => msg.remove(), 5000);
+  // Clear existing message if any
+  const oldMsg = document.querySelector(".gallery-message");
+  if (oldMsg) oldMsg.remove();
+
+  // Create message container
+  const msgContainer = document.createElement("div");
+  msgContainer.className = "gallery-message";
+  msgContainer.style.color = "white";
+  msgContainer.style.marginTop = "20px";
+  msgContainer.style.textAlign = "center";
+
+  msgContainer.innerHTML = `
+    <p style="font-size: 20px;">${message}</p>
+    <p style="font-size: 14px; opacity: 0.8;">Try another date or press the Surprise Me! button.</p>
+  `;
+
+  gallerySection.appendChild(msgContainer);
 }
