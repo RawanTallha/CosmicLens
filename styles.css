@@ -100,23 +100,6 @@ nav a.split:hover {
     }
 }
 
-/* .filler-section {
-    text-align: center;
-    color: rgb(176, 176, 176);
-    font-family: 'Bai Jamjuree';
-    font-size: 1.5vw;
-    margin: 2%;
-    padding: 9%;
-    border-radius: 50%;
-    border: 1px solid #9191916d;
-    width: fit-content;
-    
-}
-
-.filler-section img{
-    width: fit-content;
-} */
-
 /* ABOUT MARS SECTION */
 h1 {
     font-size: 3vw;
@@ -186,7 +169,6 @@ h1 {
 
 .pattern-text em {
     font-style: normal;
-    /* #9f4e22, #351b0d */
     color: #9f4e22d8;
 }
 
@@ -273,7 +255,6 @@ h1 {
     content: "";
     flex: 1;
     height: 3px;
-    /* background-color: rgba(211, 211, 211, 0.826); */
     content: "";
     flex: 1;
     height: 3px;
@@ -353,7 +334,6 @@ h1 {
     border-radius: 5px;
 }
 
-
 .gallery-buttons {
     margin: 15px;
     text-align: center;
@@ -362,7 +342,7 @@ h1 {
 .gallery-buttons button {
     margin: 5px;
     padding: 8px 15px;
-    font-size: 16px;
+    font-size: 1.9vw;
     border: none;
     border-radius: 8px;
     font-family: 'Bai Jamjuree', sans-serif;
@@ -374,14 +354,17 @@ h1 {
     background-color: #b83725;
 }
 
-#date-picker-wrapper {
-    padding: 10px;
-    background: #222;
+
+.message{
+    font-family: 'Bai Jamjuree', sans-serif;
+font-size:20px;
     color: white;
-    border-radius: 8px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
+}
+
+.hint{
+    font-family: 'Bai Jamjuree', sans-serif;
+
+    font-size: 14px; opacity: 0.8;
 }
 
 /* FOOTER */

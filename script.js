@@ -2,6 +2,7 @@ const API_KEY = '6PUAjVYbsEpxZga9mqZF9lV6slqma3LA5t6Be1FP';
 
 
 // Random background stars
+// Source: https://prismic.io/blog/css-background-effects
 function generateStarShadows(count) {
   let shadows = [];
   for (let i = 0; i < count; i++) {
@@ -11,7 +12,6 @@ function generateStarShadows(count) {
   }
   return shadows.join(', ');
 }
-
 const styleEl = document.getElementById('dynamic-stars');
 styleEl.innerHTML = `
   #small-stars {
@@ -74,11 +74,10 @@ styleEl.innerHTML = `
     box-shadow: ${generateStarShadows(100)};
   }
 `;
+// End of background stars
 
 
 // Fetching each rover's info into cards
-
-// Function to fetch
 function fetchRoverData(rover) {
   const manifestUrl = `https://api.nasa.gov/mars-photos/api/v1/manifests/${rover}?api_key=${API_KEY}`;
 
@@ -88,12 +87,11 @@ function fetchRoverData(rover) {
       const roverData = manifestData.photo_manifest;
       updateRoverCard(rover, roverData);
     })
-    .catch((err) => {
-      console.error(`Error fetching data for ${rover}:`, err);
+    .catch((error) => {
+      console.error(`Error fetching data for ${rover}:`, error);
     });
 }
 
-// Updates rover cards
 function updateRoverCard(rover, roverData) {
   const roverCard = document.querySelector(`.rover-card[data-rover="${rover}"]`);
   if (roverCard) {
@@ -110,7 +108,6 @@ function updateRoverCard(rover, roverData) {
   }
 }
 
-// calls fetchRoverData for each rover
 document.addEventListener("DOMContentLoaded", function () {
   fetchRoverData("spirit");
   fetchRoverData("opportunity");
@@ -118,10 +115,9 @@ document.addEventListener("DOMContentLoaded", function () {
   fetchRoverData("perseverance");
 });
 
-// Gallery section
+// Gallery section + buttons functions 
 const gallerySection = document.querySelector(".mars-photos");
 
-// Global vars
 let currentRover = "";
 let currentPhotos = [];
 
@@ -155,8 +151,8 @@ function fetchPhotos(rover) {
           renderGallery(randomPhotos);
         });
     })
-    .catch((err) => {
-      console.error("Error getting manifest:", err);
+    .catch((error) => {
+      console.error("Error getting manifest:", error);
       displayMessage("Couldn't load photos, try again!");
     });
 }
@@ -186,7 +182,6 @@ function renderGallery(photos) {
     `).join("")}
   </div>
 `;
-
 
   const oldGallery = document.querySelector(".gallery");
   if (oldGallery) oldGallery.remove();
@@ -225,8 +220,8 @@ function pickDate() {
       const randomPhotos = getRandomItems(data.photos, 8);
       renderGallery(randomPhotos);
     })
-    .catch((err) => {
-      console.error("Error fetching by date:", err);
+    .catch((error) => {
+      console.error("Error fetching by date:", error);
     });
 }
 
@@ -237,7 +232,7 @@ function randomDate() {
     return;
   }
 
-  const randomSol = Math.floor(Math.random() * 2000); // safer upper range
+  const randomSol = Math.floor(Math.random() * 2000); 
 
   const url = `https://api.nasa.gov/mars-photos/api/v1/rovers/${currentRover}/photos?sol=${randomSol}&api_key=${API_KEY}`;
 
@@ -252,26 +247,22 @@ function randomDate() {
       const randomPhotos = getRandomItems(currentPhotos, 8);
       renderGallery(randomPhotos);
     })
-    .catch((err) => {
-      console.error("Error with surprise sol:", err);
+    .catch((error) => {
+      console.error("Error with surprise sol:", error);
     });
 }
 
 
 function displayMessage(message, hint) {
-  // Remove old gallery if exists
   const oldPhotoGrid = document.querySelector(".photo-grid");
   if (oldPhotoGrid) oldPhotoGrid.remove();
   
-  // Remove old date picker if exists
   const oldPicker = document.getElementById("date-picker-wrapper");
   if (oldPicker) oldPicker.remove();
 
-  // Clear existing message if any
   const oldMsg = document.querySelector(".gallery-message");
   if (oldMsg) oldMsg.remove();
 
-  // Create message container
   const msgContainer = document.createElement("div");
   msgContainer.className = "gallery-message";
   msgContainer.style.color = "white";
@@ -279,14 +270,13 @@ function displayMessage(message, hint) {
   msgContainer.style.textAlign = "center";
 
   msgContainer.innerHTML = `
-    <p style="font-size: 20px;">${message}</p>
-    <p style="font-size: 14px; opacity: 0.8;">${hint}</p>
+    <p class="message">${message}</p>
+    <p class="hint">${hint}</p>
   `;
 
   gallerySection.appendChild(msgContainer);
 
-  // Hide the message after 3 seconds
   setTimeout(() => {
     msgContainer.style.display = 'none';
-  }, 3000); // 3000ms = 3 seconds
+  }, 3000); 
 }
