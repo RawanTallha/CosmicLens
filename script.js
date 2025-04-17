@@ -171,32 +171,22 @@ function renderGallery(photos) {
   gallery.className = "gallery";
 
   gallery.innerHTML = `
-
-  </div>
-    <div class="gallery-buttons">
-      <button onclick="shufflePhotos()">Shuffle</button>
-      <button onclick="pickDate()">Pick a Date</button>
-      <button onclick="randomDate()">Surprise Me!</button>
-    </div>
-    <div class="photo-grid">
-      ${photos
-        .map(
-          (photo) => `
-        <div class="photo-card">
-          <img src="${photo.img_src.replace('http://', 'https://')}" alt="Mars photo" />
-          <div class="photo-info">
+  <div class="photo-grid">
+    ${photos.map(photo => `
+      <div class="photo-card">
+        <img src="${photo.img_src.replace('http://', 'https://')}" alt="Mars photo" />
+        <div class="photo-info">
           <p>Rover: ${photo.rover.name}</p>
-            <p>Earth Date: ${photo.earth_date}</p>
-            <p>Sol: ${photo.sol}</p>
-            <p>Camera: ${photo.camera.full_name}</p>
-            <p>Camera ID: ${photo.camera.id}</p>
-          </div>
+          <p>Earth Date: ${photo.earth_date}</p>
+          <p>Sol: ${photo.sol}</p>
+          <p>Camera: ${photo.camera.full_name}</p>
+          <p>Camera ID: ${photo.camera.id}</p>
         </div>
-      `
-        )
-        .join("")}
-    
-  `;
+      </div>
+    `).join("")}
+  </div>
+`;
+
 
   const oldGallery = document.querySelector(".gallery");
   if (oldGallery) oldGallery.remove();
@@ -210,7 +200,7 @@ function renderGallery(photos) {
 
 function shufflePhotos() {
   if (currentPhotos.length === 0) {
-    displayMessage("Nothing to shuffle yet! Try selecting a rover.");
+    displayMessage("Nothing to shuffle yet!", "Select a rover first");
     return;
   }
 
@@ -229,7 +219,7 @@ function pickDate() {
     .then((res) => res.json())
     .then((data) => {
       if (data.photos.length === 0) {
-        displayMessage("No photos found on that date.");
+        displayMessage("No photos found on that date.", "Try another date or press the Surprise Me! button.");
         return;
       }
       const randomPhotos = getRandomItems(data.photos, 8);
@@ -242,8 +232,8 @@ function pickDate() {
 
 
 function randomDate() {
-  if (!currentRover) {
-    alert("Pick a rover first!");
+  if (currentPhotos.length === 0) {
+    displayMessage("Select a rover first!", "Will surprise you with random photos");
     return;
   }
 
@@ -267,11 +257,12 @@ function randomDate() {
     });
 }
 
-function displayMessage(message) {
-  // Remove old gallery if exists
-  const oldGallery = document.querySelector(".gallery");
-  if (oldGallery) oldGallery.remove();
 
+function displayMessage(message, hint) {
+  // Remove old gallery if exists
+  const oldPhotoGrid = document.querySelector(".photo-grid");
+  if (oldPhotoGrid) oldPhotoGrid.remove();
+  
   // Remove old date picker if exists
   const oldPicker = document.getElementById("date-picker-wrapper");
   if (oldPicker) oldPicker.remove();
@@ -289,8 +280,13 @@ function displayMessage(message) {
 
   msgContainer.innerHTML = `
     <p style="font-size: 20px;">${message}</p>
-    <p style="font-size: 14px; opacity: 0.8;">Try another date or press the Surprise Me! button.</p>
+    <p style="font-size: 14px; opacity: 0.8;">${hint}</p>
   `;
 
   gallerySection.appendChild(msgContainer);
+
+  // Hide the message after 3 seconds
+  setTimeout(() => {
+    msgContainer.style.display = 'none';
+  }, 3000); // 3000ms = 3 seconds
 }

@@ -37,13 +37,11 @@ nav a.split:hover {
 
 /* HOME SECTION */
 .home-card {
-    /* margin: 5% 0 15% 0;
-    width: 100%; */
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    margin-bottom: 5%;
+    margin: 5% 0 15% 0;
 }
 
 .home-card p {
@@ -161,7 +159,7 @@ h1 {
 
 /* PATTERN */
 .pattern-divider {
-    margin: 10% 0 15% 0;
+    margin: 15% 0 15% 0;
 }
 
 .pattern {
@@ -204,9 +202,19 @@ h1 {
 
 .rover-cards {
     display: flex;
-    gap: 2%;
-    margin: 4%;
+    gap: 1%;
+    margin: 2%;
     justify-content: center;
+}
+
+
+@media (max-width: 768px) {
+    .rover-cards{
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        justify-items: center;
+        gap: 3%;
+    }
 }
 
 .rover-card {
@@ -345,8 +353,10 @@ h1 {
     border-radius: 5px;
 }
 
+
 .gallery-buttons {
     margin: 15px;
+    text-align: center;
 }
 
 .gallery-buttons button {
